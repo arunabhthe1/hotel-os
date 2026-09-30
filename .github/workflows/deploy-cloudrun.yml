@@ -1,0 +1,25 @@
+name: Trigger combined Cloud Run deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify hotel-os-app to rebuild image
+        env:
+          GH_TOKEN: ${{ secrets.BACKEND_DISPATCH_TOKEN }}
+        run: |
+          BACKEND_REPO="${{ vars.BACKEND_REPO }}"
+          if [ -z "$BACKEND_REPO" ]; then
+            BACKEND_REPO="${{ github.repository_owner }}/hotel-os-app"
+          fi
+          gh api --method POST \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${BACKEND_REPO}/dispatches" \
+            --input - <<EOF
+          {"event_type":"frontend-changed","client_payload":{"sha":"${GITHUB_SHA}"}}
+          EOF
