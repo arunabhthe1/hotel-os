@@ -1,6 +1,6 @@
 # Hotel OS — ER diagram
 
-MySQL entity-relationship diagram for [`../db/schema.sql`](../db/schema.sql).
+PostgreSQL entity-relationship diagram for [`../db/schema.sql`](../db/schema.sql).
 
 ## Full ERD
 

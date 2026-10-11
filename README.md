@@ -19,7 +19,7 @@ Open the URL Vite prints (usually `http://localhost:5173`).
 
 ## Cloud Run
 
-Production is one Cloud Run service: this app is built into the **hotel-os-app** image. See [docs/gcp-cloud-run.md](./docs/gcp-cloud-run.md).
+Production is one Cloud Run service: this app is built into the **hotel-os-app** image. Summary: [docs/deploy-summary.md](./docs/deploy-summary.md). Detail: [docs/gcp-cloud-run.md](./docs/gcp-cloud-run.md).
 
 Home page links:
 
