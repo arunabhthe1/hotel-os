@@ -1,6 +1,6 @@
-# Hotel OS — MySQL data model
+# Hotel OS — data model
 
-Mapped from the current UI portals (customer / manager / admin) for **MySQL 8.0+**.
+Mapped from the current UI portals (customer / manager / admin) for **PostgreSQL 15+**.
 
 Canonical DDL: [`../db/schema.sql`](../db/schema.sql)
 
@@ -65,5 +65,5 @@ Walk-ins skip Razorpay: `orders.source='walk-in'`, `payments.provider='cash'` (o
 ## Apply
 
 ```bash
-mysql -u root -p < db/schema.sql
+psql -U hotel_os -d hotel_os -f db/schema.sql
 ```
